@@ -49,7 +49,7 @@ class MyHomePage extends StatelessWidget {
                 child: Text(
                   'PBP SHOP', // Text yang menandakan toko
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
