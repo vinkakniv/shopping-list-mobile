@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_list/widgets/left_drawer.dart';
+import 'package:shopping_list/widgets/shop_card.dart';
+import 'package:shopping_list/screens/shoplist_form.dart';
 
 class ShopItem {
   final String name;
@@ -26,16 +29,24 @@ class MyHomePage extends StatelessWidget {
   // always marked "final".
   @override
   Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo.shade200,
+        backgroundColor: Colors.white,
         title: const Text(
           'Shopping List',
           style: TextStyle(
-            fontStyle: FontStyle.italic, // Set the fontStyle here
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
+      drawer: const LeftDrawer(),
       body: SingleChildScrollView(
         // Widget wrapper yang dapat discroll
         child: Padding(
@@ -47,11 +58,12 @@ class MyHomePage extends StatelessWidget {
                 padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                 // Widget Text untuk menampilkan tulisan dengan alignment center dan style yang sesuai
                 child: Text(
-                  'PBP SHOP', // Text yang menandakan toko
+                  'PBP Shop', // Text yang menandakan toko
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black
                   ),
                 ),
               ),
@@ -94,13 +106,17 @@ class ShopCard extends StatelessWidget {
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
+          if (item.name == "Tambah Produk") {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ShopFormPage()));
+          }
         },
         child: Container(
           // Container untuk menyimpan Icon dan Text
           padding: const EdgeInsets.all(8),
           child: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment. center,
               children: [
                 Icon(
                   item.icon,
