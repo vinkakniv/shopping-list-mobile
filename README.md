@@ -1,5 +1,7 @@
 # shopping_list
 
+APP CENTER [here](install.appcenter.ms/orgs/pbp-shop/apps/shopping-list/distribution_groups/public)
+
 A new Flutter project.
 
 ## Getting Started
